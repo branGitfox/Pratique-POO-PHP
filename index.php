@@ -3,7 +3,6 @@ require './functions/Database.php';
 $db = new Database();
 $db->connect();
 
-
 if(isset($_GET['p'])) {
     $p = $_GET['p'];
 }else {
@@ -11,7 +10,9 @@ if(isset($_GET['p'])) {
 }
 
 
-
+/**
+ * router qui permet de detecter quel page afficher
+ */
 if($p === 'home') {
     require './pages/home.php';
 }elseif($p === 'edit') {

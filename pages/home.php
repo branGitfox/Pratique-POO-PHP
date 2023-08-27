@@ -22,6 +22,17 @@
                     <th>Name</th>
                     <th>Actions</th>
                 </thead>
+                <tbody>
+                    <?php foreach($db->fetchAll() as $data):?>
+                        <tr>
+                            <td><?= $data['id']?></td><td><?=$data['name']?></td>
+                            <td>
+                                <a href="index.php?p=delete&id=<?=$data['id']?>">Delete</a>
+                                <a href="index.php?p=edit&id=<?=$data['id']?>">Edit</a>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>    
+                </tbody>
             </table>
         </div>
     </div>
