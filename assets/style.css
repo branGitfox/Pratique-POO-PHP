@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: grey;
+}
+.container {
+    max-width: 1200px;
+    min-height: 50%;
+    margin:40px auto;
+    background-color: rgb(228, 226, 223);
+    box-shadow: 0px 0px 20px rgb(7, 7, 7);
+    border-radius: 5px;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;    
+    margin-top: 50px;
+
+}
+input {
+    border: none;
+    box-shadow: 0px 0px 20px rgb(7, 7, 7);
+    height: 45px;
+    border-radius: 2px;
+     max-width: 100%;
+    padding: 20px;
+}
+
+form button {
+    padding: 15px 20px;
+    border: none;
+    background-color: green;
+    color: white;
+    margin-left: 5px;
+    border-radius: 3px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+.articles-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+table {
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-collapse: collapse;
+    border: solid 1px grey;
+    border-radius: 3px;
+    color: black;
+}
+
+th {
+    padding: 10px;
+    border: solid 1px grey;
+}
+
+td {
+    border: solid 1px grey;
+    padding: 10px;
+
+}
+
+a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 3px;
+}
+
+.edit {
+    background-color: blue;
+}
+
+.delete {
+    background-color: red;
+
+}
+
+.new-button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.new {
+    
+    background-color: blueviolet;
+    margin-top: 40px;
+
+}

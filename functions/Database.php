@@ -22,6 +22,11 @@ class Database {
         }
         return $this->con;
     }
+    private function getId(){
+        if(isset($_GET['id'])) {
+            return $_GET['id'];
+        }
+    }
 
 /**
  * une fonction qui permet verifier si le champ n'est pas vide
@@ -54,12 +59,11 @@ class Database {
  * une fonction qui permet de supprimer un article
  */
     public function deleteFrom() {
-        if(isset($_GET['id'])){
-            $id = $_GET['id'];
+        
             $delete = $this->connect()->prepare("DELETE FROM data WHERE id = ?");
-            $delete->execute([$id]);
+            $delete->execute([$this->getId()]);
             return $delete;
-        }
+        
     }
 
 /**
@@ -69,14 +73,26 @@ class Database {
         return header('location:index.php?p='.$page);
     }
 
+    public function search() {
+        if(isset($_GET['q'])){
+            $q= $_GET['q'];
+            return $q;
+        }
+
+    }
+
 /**
  * fonction qui permet de recuperer tous les articles
  */
   public function fetchAll() {
-    $fetch = $this->connect()->query('SELECT * FROM data');
-    $fetch->execute();
-    $data = $fetch->fetchAll();
-    return $data;
+        $query= 'SELECT * FROM data';
+        if($this->search() != ""){
+         $query = "SELECT * FROM  data WHERE name= '".$this->search()."'";
+        }
+         $fetch = $this->connect()->query($query);
+         $fetch->execute();
+        $data = $fetch->fetchAll();
+        return $data;
   }
 
 /***
@@ -84,14 +100,13 @@ class Database {
  */
 
   public function recupArticle() {
-        if(isset($_GET['id'])){
-            $id = $_GET['id'];
-            $this->id= $id;
-            $recup = $this->connect()->prepare('SELECT * FROM data WHERE id = ?');
-            $recup->execute([$id]);
-            $data = $recup->fetch();
-            return $data;
-        }
+        
+        $this->id= $this->getId();
+        $recup = $this->connect()->prepare('SELECT * FROM data WHERE id = ?');
+        $recup->execute([$this->getId()]);
+        $data = $recup->fetch();
+        return $data;
+        
   }
 /**
  * modification d'un articles
@@ -106,5 +121,7 @@ class Database {
         }
      
     }
+
+  
 }
 
