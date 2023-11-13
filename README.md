@@ -1,2 +1,2 @@
-# Pratique-POO-PHP
-just trying to build a CRUD with POO PHP
+# CRUD-PHP-POO
+An example of crud implementation with POO PHP and mysql
